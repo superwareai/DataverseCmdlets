@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>superware.ai</authors>
+    <owners>superware.ai</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/superwareai/DataverseCmdlets</projectUrl>
+    <description>.net cmdlets for Powershell 5 to fill in the ALM gaps when working with Power Platform Dataverse</description>
+    <copyright>$copyright$</copyright>
+  	<dependencies>
+      <group>
+        <dependency id="DocumentFormat.OpenXmlSDK" version="2.0.0" include="contentFiles"/>
+        <dependency id="Microsoft.PowerPlatform.Dataverse.Client.Dynamics" version="1.0.26" include="contentFiles"/>
+        <dependency id="Microsoft.PowerShell.5.ReferenceAssemblies" version="1.1.0" include="contentFiles"/>
+      </group>
+    </dependencies>
+  </metadata>
+  	<files>
+		  <file src="bin\Release\net48\*.dll" target="tools" />
+      <file src="Scripts\*.*"   target="tools" />
+	</files>
+</package>
