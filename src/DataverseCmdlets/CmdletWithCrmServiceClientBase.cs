@@ -1,7 +1,8 @@
-﻿using System;
+﻿using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Tooling.Connector;
+using System;
 using System.Management.Automation;
 using System.Net;
-using Microsoft.PowerPlatform.Dataverse.Client;
 
 namespace DataverseCmdlets
 {
@@ -13,7 +14,7 @@ namespace DataverseCmdlets
 		[Parameter(Mandatory = true)]
 		public string ConnectionString { get; set; }
 
-		protected ServiceClient service = null;
+		protected CrmServiceClient service = null;
 
 		protected override void ProcessRecord()
         {
@@ -21,7 +22,7 @@ namespace DataverseCmdlets
 
 			try
 			{
-				service = new ServiceClient(ConnectionString);
+				service = new CrmServiceClient(ConnectionString);
 			}
 			catch (Exception ex)
 			{
@@ -31,7 +32,7 @@ namespace DataverseCmdlets
 
 			if (!service.IsReady)
 			{
-				var err = new ErrorRecord(service.LastException, service.LastError, ErrorCategory.ResourceUnavailable, null);
+				var err = new ErrorRecord(service.LastCrmException, service.LastCrmError, ErrorCategory.ResourceUnavailable, null);
 				WriteError(err);
 				return;
 			}
