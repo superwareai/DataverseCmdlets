@@ -86,7 +86,7 @@ namespace DataverseCmdlets
 
 					foreach (var crto in this.ConnectionReferencesToUse)
 					{
-						if (apiName == crto.ForConnectionType.ToString())
+						if (apiName == crto.ForConnectionType)
 						{
 							if (connectionName != null)
 							{
@@ -138,32 +138,8 @@ namespace DataverseCmdlets
 
 		public class ConnectionReferenceToUse
 		{
-			public ConnectionTypeEnum ForConnectionType { get; set; }
+			public string ForConnectionType { get; set; }
 			public string ConnectionReferenceName { get; set; }
 		}
-
-        public enum ConnectionTypeEnum
-        {
-            /// <summary>
-            /// Dataverse
-            /// </summary>
-            shared_commondataserviceforapps,
-            /// <summary>
-            /// Dataverse (legacy)
-            /// </summary>
-            shared_commondataservice,
-            /// <summary>
-            /// Excel Online For Business
-            /// </summary>
-            shared_excelonlinebusiness,
-            /// <summary>
-            /// Sharepoint online
-            /// </summary>
-            shared_sharepointonline,
-            /// <summary>
-            /// OneDrive for Business
-            /// </summary>
-            shared_onedriveforbusiness
-        }
     }
 }
